@@ -1,5 +1,6 @@
 package edu.uph.m23si2.pertamaapp.model;
 
+import io.realm.RealmList;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
@@ -9,6 +10,7 @@ public class Matakuliah extends RealmObject {
     private String Nama,Prodi;
     private int Sks;
     private Prodi prodi;
+    private RealmList<KelasMataKuliah> kelasList;
 
     public Matakuliah(){}
 
@@ -61,5 +63,13 @@ public class Matakuliah extends RealmObject {
 
     public void setProdi(String prodi) {
         Prodi = prodi;
+    }
+
+    public RealmList<KelasMataKuliah> getKelasList() {
+        return kelasList;
+    }
+
+    public void setKelasList(RealmList<KelasMataKuliah> kelasList) {
+        this.kelasList = kelasList;
     }
 }
