@@ -90,7 +90,6 @@ public class LoginActivity extends AppCompatActivity {
             matMobile.getKelasList().add(kelasJava);
             matPBO.getKelasList().add(kelasBasisData);
 
-            // === KRS ===
             Krs krs001 = r.createObject(Krs.class, 0);
             krs001.setSemester(4);
             krs001.setTahunAjaran("2024/2025");
@@ -102,7 +101,6 @@ public class LoginActivity extends AppCompatActivity {
             krs002.setDetailList(new RealmList<>());
 
 
-            // === KRS Detail ===
             Krs_Detail detail001 = r.createObject(Krs_Detail.class, 0);
             detail001.setKrs(krs001);
             detail001.setKelasMatakuliah(kelasJava);
@@ -116,10 +114,15 @@ public class LoginActivity extends AppCompatActivity {
             krs001.getDetailList().add(detail001);
             krs002.getDetailList().add(detail002);
 
+            Mahasiswa mhs1 = r.createObject(Mahasiswa.class, 101);
+            mhs1.setNama("Budi Santoso");
+            mhs1.setJenisKelamin("Laki-laki");
+            mhs1.setHobi("Coding");
+            mhs1.setEmail("budi@kampus.ac.id");
+            mhs1.setProdi("Teknik Informatika");
+            mhs1.setListKRS(new RealmList<>());
 
-
-
-
+            mhs1.getListKRS().add(krs001);
         });
         Toast.makeText(this, "Data tersimpan", Toast.LENGTH_SHORT).show();
 
